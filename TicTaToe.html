@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<title> Tic Tac Toe | RAFI ART </title>
+		<style>
+			#kotak{
+				border: solid 1px #ccc;
+				width:300px;
+				height:300px;
+			}
+			#tombol{
+				width: 100px;
+				height: 100px;
+				float:left;
+			}
+			.depan{
+				width:100px;
+				height:100px;
+				position: absolute;
+				transform :perspective(600px)rotateY(0deg);
+				border:solid 1px #000;
+				backface-visibility:hidden;
+				transition: transform 1s linear 0s;
+			}
+			.belakang{
+				width:100px;
+				height:100px;
+				position: absolute;
+				transform :perspective(600px)rotateY(180deg);
+				border:solid 1px #000;
+				backface-visibility:hidden;
+				transition: transform 1s linear 0s;
+				font-size:70px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="kotak">
+		
+			<div id="tombol" onclick="kliktombol(1)">
+				<button id="btn1D" class="depan"></button>
+				<button id="btn1B" class="belakang"></button>
+			</div>
+			<div id="tombol" onclick="kliktombol(2)">
+				<button id="btn2D" class="depan"></button>
+				<button id="btn2B" class="belakang"></button>
+			</div>
+			<div id="tombol" onclick="kliktombol(3)">
+				<button id="btn3D" class="depan"></button>
+				<button id="btn3B" class="belakang"></button>
+			</div>
+			<div id="tombol" onclick="kliktombol(4)">
+				<button id="btn4D" class="depan"></button>
+				<button id="btn4B" class="belakang"></button>
+			</div>
+			<div id="tombol" onclick="kliktombol(5)">
+				<button id="btn5D" class="depan"></button>
+				<button id="btn5B" class="belakang"></button>
+			</div>
+			<div id="tombol" onclick="kliktombol(6)">
+				<button id="btn6D" class="depan"></button>
+				<button id="btn6B" class="belakang"></button>
+			</div>
+			<div id="tombol" onclick="kliktombol(7)">
+				<button id="btn7D" class="depan"></button>
+				<button id="btn7B" class="belakang"></button>
+			</div>
+			<div id="tombol" onclick="kliktombol(8)">
+				<button id="btn8D" class="depan"></button>
+				<button id="btn8B" class="belakang"></button>
+			</div>
+			<div id="tombol" onclick="kliktombol(9)">
+				<button id="btn9D" class="depan"></button>
+				<button id="btn9B" class="belakang"></button>
+			</div>
+		</div>
+		
+		
+	<script>
+	
+	var pemain ="x";
+	
+		function kliktombol (x){
+			document.getElementById("btn"+x+"D").style.transform="perspective(600px)rotateY(-180deg)";
+			
+			document.getElementById("btn"+x+"B").style.transform="perspective(600px)rotateY(0deg)";
+			
+			document.getElementById("btn"+x+"B").innerHTML=pemain;
+			
+			document.getElementById("btn"+x+"B").value =pemain;
+			
+			document.getElementById("btn"+x+"B").disabled="disabled";
+			
+			if(pemain=="x"){
+				cekPemenang
+				pemain="o";
+			}else{
+				cekPemenang
+				pemain="x";
+			}
+		}
+		
+		function cekPemenang(){
+			if( document.getElementById("btn1B").value==pemain &&
+			    document.getElementById("btn2B").value==pemain &&
+				document.getElementById("btn3B").value==pemain 
+			){
+				menang();
+			}else if(
+				document.getElementById("btn4B").value==pemain &&
+			    document.getElementById("btn5B").value==pemain &&
+				document.getElementById("btn6B").value==pemain
+			){
+				menang();
+			}else if(
+				document.getElementById("btn7B").value==pemain &&
+			    document.getElementById("btn8B").value==pemain &&
+				document.getElementById("btn9B").value==pemain
+			){
+				menang();
+			}else if(
+				document.getElementById("btn1B").value==pemain &&
+			    document.getElementById("btn4B").value==pemain &&
+				document.getElementById("btn7B").value==pemain
+			){
+				menang();
+			}else if(
+				document.getElementById("btn2B").value==pemain &&
+			    document.getElementById("btn5B").value==pemain &&
+				document.getElementById("btn8B").value==pemain
+			){
+				menang();
+			}else if(
+				document.getElementById("btn3B").value==pemain &&
+			    document.getElementById("btn6B").value==pemain &&
+				document.getElementById("btn9B").value==pemain
+			){
+				menang();
+			}else if(
+				document.getElementById("btn1B").value==pemain &&
+			    document.getElementById("btn5B").value==pemain &&
+				document.getElementById("btn9B").value==pemain
+			){
+				menang();
+			}else if(
+				document.getElementById("btn3B").value==pemain &&
+			    document.getElementById("btn5B").value==pemain &&
+				document.getElementById("btn7B").value==pemain
+			){
+				menang();
+			}
+		}
+		
+		function menang(){
+			alert("pemain " + pemain + " menang");
+		}
+	</script>
+	</body>
+</html>
